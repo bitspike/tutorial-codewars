@@ -2,22 +2,29 @@ import unittest
 
 import solution as s
 
-tests = [
-    ["1 + 1", 2],
-    ["8/16", 0.5],
-    ["3 -(-1)", 4],
-    ["2 + -2", 0],
-    ["10- 2- -5", 13],
-    ["(((10)))", 10],
-    ["3 * 5", 15],
-    ["-7 * -(6 / 3)", 14]
-]
-
 class TestBasic(unittest.TestCase):
     def test_calc(self):
-        pass
-        # for test in tests:
-        #     self.assertEquals(s.calc(test[0]), test[1])
+        self.assertEquals(s.string_evaluation(
+            'aab#HcCcc##l#', ['a<b', '#==4', 'c>=C', 'H!=a']),
+                            [ False, True,   True,   True ])
+        self.assertEquals(s.string_evaluation(
+            'abc#$%KDAyyaa@@@', ['#>@', 'A==2', 'a>A', '$!=2']),
+                                [ False, False,  True,  True ])
+        self.assertEquals(s.string_evaluation(
+            'abb', ['a>b', 'b==a', 'b<=a', 'b>a', 'b!=b', 'a==1', 'b==1']),
+                [ False, False,  False,  True,  False,  True,   False])
+
+
+# test.assert_equals(string_evaluation(
+#     'aab#HcCcc##l#', ['a<b', '#==4', 'c>=C', 'H!=a']),
+#                      [ False, True,   True,   True ])
+# test.assert_equals(string_evaluation(
+#     'abc#$%KDAyyaa@@@', ['#>@', 'A==2', 'a>A', '$!=2']),
+#                         [ False, False,  True,  True ])
+# test.assert_equals(string_evaluation(
+#     'abb', ['a>b', 'b==a', 'b<=a', 'b>a', 'b!=b', 'a==1', 'b==1']),
+#            [ False, False,  False,  True,  False,  True,   False])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -19,6 +19,7 @@ The characters in the conditions will always be in the string. Characters in the
 \`\`\`Python
 input string: "aab#HcCcc##l#"
 conditions: ["a<b", "#==4", "c>=C", "H!=a"]
+```
 
 The conditions in this example array can be interpreted as:
 
